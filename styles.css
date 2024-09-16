@@ -1,0 +1,18 @@
+/*
+body {
+    width: 100%;
+    background-image: url("images/kiyomizudera.jpg");
+    background-size: cover;
+    background-color: bisque;
+}
+*/
+
+/* For width 400px and larger:
+@media only screen and (min-width: 400px) {
+    body {
+      background-image: url("images/kiyomizudera-small.jpg");
+      background-size: cover;
+      background-color: bisque;
+    }
+  }
+*/
