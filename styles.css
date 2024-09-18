@@ -4,24 +4,24 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/*
+
 body {
-    width: 100%;
-    background-image: url("images/kiyomizudera.jpg");
+    height: 100vh;
+    background-image: url("images/kiyomizudera-small.jpg");
     background-size: cover;
     background-color: bisque;
 }
-*/
 
-/* For width 400px and larger:
+
 @media only screen and (min-width: 400px) {
     body {
-      background-image: url("images/kiyomizudera-small.jpg");
+      height: 100vh;
+      background-image: url("images/kiyomizudera.jpg");
       background-size: cover;
       background-color: bisque;
     }
   }
-*/
+
 
 nav {
   display: flex;
@@ -43,7 +43,7 @@ nav * {
 }
 
 .nav-links a {
-  margin-right: 10px;
+  margin-right: 0.5vw;
   color: white;
   font-size: 15pt;
   text-decoration: none;
@@ -52,7 +52,6 @@ nav * {
 .search-container {
   display: inline-flex;
   flex-wrap: wrap;
-  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -65,12 +64,23 @@ nav * {
 }
 
 main {
-  padding: 5px;
+  padding: 5px 0 0 4vw;
   margin: 5px;
 }
 
 h1 {
-  padding-bottom: 15px;
+  font-size: 28pt;
+  padding: 5vh 0 5vh 0;
+}
+
+h2 {
+  padding: 5vh 0 5vh 0;
+  font-size: 20pt;
+}
+
+h1 + p {
+  font-size: 14pt;
+  width: 60vw;
 }
 
 /* Add styling when form input has focus and is invalid */
