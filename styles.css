@@ -6,19 +6,17 @@
 
 
 body {
-    height: 100vh;
-    background-image: url("images/kiyomizudera-small.jpg");
-    background-size: cover;
-    background-color: bisque;
+  background-attachment: fixed;
+  background-color: white;
+  background-image: url("images/kiyomizudera-small.jpg");
+  background-size: cover;
+  height: 100vh;
 }
 
 
 @media only screen and (min-width: 400px) {
     body {
-      height: 100vh;
       background-image: url("images/kiyomizudera.jpg");
-      background-size: cover;
-      background-color: bisque;
     }
   }
 
@@ -63,24 +61,68 @@ nav * {
   border-radius: 2px;
 }
 
+/* For screen under 500px wide */
 main {
-  padding: 5px 0 0 4vw;
-  margin: 5px;
+  display: grid;
+  max-width: 100vw;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "top" "left" "right";
+  padding: 1vh 1vw 1vh 1vw;
+  row-gap: 10vw;
+}
+
+/* For screen over 500px wide */
+@media (min-width: 750px) {
+  main {
+    column-gap: 10vw;
+    grid-template-areas:
+      "top top"
+      "left right";    
+    grid-template-columns: 6fr 4fr;
+    grid-template-rows: auto auto;
+
+  }
+}
+
+main h1, h2, form, p {
+  margin: 1vh 1vw 1vh 1vw
 }
 
 h1 {
-  font-size: 28pt;
-  padding: 5vh 0 5vh 0;
+  font-size: max(5vw, 30pt);
+  padding: 2vh 0 0 0;
 }
 
 h2 {
-  padding: 5vh 0 5vh 0;
   font-size: 20pt;
 }
 
-h1 + p {
-  font-size: 14pt;
-  width: 60vw;
+.left p::first-line {
+  font-size: max(1.5vw, 18pt);
+}
+
+p {
+  font-size: max(1vw, 14pt);
+  padding: 0 0 1vh 0;
+}
+
+p + br {
+  margin: 0 0 2vh 0;
+}
+
+.top {
+  align-content: center;
+  grid-area: top;
+}
+
+.left {
+  grid-area: left;
+}
+
+.right {
+  grid-area: right;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 /* Add styling when form input has focus and is invalid */
