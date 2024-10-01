@@ -32,23 +32,29 @@
         </ul>
         <div class="search-container">
             <label for="search">Where to next?</label>
-            <input type="search" name="search" placeholder="Enter keyword or destination">
+            <input type="search" name="search" id="search-input" placeholder="Enter keyword or destination">
             <div class="search-buttons">
-                <button>Search</button>
-                <button>Clear</button>
+                <button id="search-btn">Search</button>
+                <button id="clear-btn">Clear</button>
             </div>
         </div>
     </nav>
     <main>
         <div class="top">
-            <h1>Travel Your Way.<br>Travel Well.</h1>
+            <h1>Travel Your Way...<br>Travel Well</h1>
         </div>
         <div class="left">
-            <p>Before you step out your door, let us help you chart your course. The world is full of amazing destinations and cultures. Pick one to explore next!</p>
+            <p>
+                Before you step out your door, let us help you chart your course. 
+                The world is full of amazing destinations and cultures. 
+                <br>
+                Find somewhere to explore next!
+            </p>
         </div>
         <div class="right" id="search-results">
             <!-- Search results go here-->
         </div>
     </main>
+    <script src="travel_recommendation.js"></script>
 </body>
 </html>

@@ -106,7 +106,7 @@ p {
   padding: 0 0 1vh 0;
 }
 
-p + br {
+p > br {
   margin: 0 0 2vh 0;
 }
 
@@ -123,6 +123,10 @@ p + br {
   grid-area: right;
   border: 2px solid black;
   border-radius: 5px;
+}
+
+.right:not(:empty) {
+  border: 2px transparent;
 }
 
 /* Add styling when form input has focus and is invalid */
