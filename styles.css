@@ -68,24 +68,24 @@ main {
   grid-template-rows: auto auto auto;
   grid-template-areas: "top" "left" "right";
   padding: 1vh 1vw 1vh 1vw;
-  row-gap: 10vw;
+  row-gap: 2vh;
 }
 
 /* For screen over 500px wide */
 @media (min-width: 750px) {
   main {
-    column-gap: 10vw;
+    column-gap: 5vw;
     grid-template-areas:
-      "top top"
+      "top right"
       "left right";    
-    grid-template-columns: 6fr 4fr;
+    grid-template-columns: 5fr 5fr;
     grid-template-rows: auto auto;
 
   }
 }
 
-main h1, h2, form, p {
-  margin: 1vh 1vw 1vh 1vw
+main h1, h2, h3, h4, img, form, p {
+  margin: 1vh 1vw .5vh 1vw
 }
 
 h1 {
@@ -111,7 +111,6 @@ p > br {
 }
 
 .top {
-  align-content: center;
   grid-area: top;
 }
 
@@ -120,13 +119,14 @@ p > br {
 }
 
 .right {
-  grid-area: right;
-  border: 2px solid black;
   border-radius: 5px;
+  grid-area: right;
+  height: 60vh;
 }
 
 .right:not(:empty) {
-  border: 2px transparent;
+  background: #FFFFFFDD ;
+  overflow: scroll;
 }
 
 /* Add styling when form input has focus and is invalid */
