@@ -10,38 +10,28 @@ function fetchDestinations() {
         .then(data => {
             const query = searchInput.value.toLowerCase();
             const type = matchSearch(query);
-            console.log(type); // TODO: Remove when this is working properly
-            const destination = data[type];
-            if (type === "countries") {
-                destination.forEach(country => {
-                    const countryName = country.name;
-                    resultsDiv.innerHTML += `<h2>${countryName}</h2>`;
-                    console.log(countryName);
-                    country.cities.forEach(city => {
-                        const cityName = city.name;
-                        const imageUrl = city.imageUrl;
-                        const description = city.description;
-                        resultsDiv.innerHTML += `<h3>${cityName}</h3>`;
-                        resultsDiv.innerHTML += `<img src="${imageUrl}" alt="Photo of ${cityName}">`
-                        resultsDiv.innerHTML += `<p>${description}</p>`;
-                        console.log(cityName);
-                        console.log(description);
-                    });
-                });
-            } else if (type) {
-                destination.forEach(city => {
-                    const cityName = city.name;
-                    const imageUrl = city.imageUrl;
-                    const description = city.description;
-                    console.log(cityName);
-                    console.log(description);
-                });
-            } else {
-                resultsDiv.innerHTML = `<p>No results found for "${query}", but we know there is destination for you! \
-                <br> How about searching for beaches, temples, or countries?</p>`;
-            }
-        })
-    }
+            const destinations = data[type];
+            if (destinations) {
+                resultsDiv.innerHTML += '<h2>How about a trip to...</h2>'
+                for (const destination of destinations) {
+                    const name = destination.name;
+                    resultsDiv.innerHTML += `<h3>${name}</h3>`;
+                    if (destination.imageUrl && destination.description) {
+                        displayDestinations(name, destination.imageUrl, destination.description);
+                    } else if (destination.cities) {
+                        for (const city of destination.cities) {
+                            const name = city.name;
+                            resultsDiv.innerHTML += `<h4>${name}</h4>`;
+                            displayDestinations(name, city.imageUrl, city.description);
+                        }
+                    }
+                }
+                } else {
+                    resultsDiv.innerHTML = `<p>No results found for "${query}", but we know there is destination for you! \
+                    <br> How about searching for beaches, temples, or countries?</p>`;
+                }
+            })
+        }
 
 function matchSearch(query) {
     if (query.search("countr") > -1) {
@@ -53,6 +43,11 @@ function matchSearch(query) {
     } else {
         return false;
     }
+}
+
+function displayDestinations(name, imageUrl, description) {
+    resultsDiv.innerHTML += `<img src="${imageUrl}" alt="Photo of ${name}">`;
+    resultsDiv.innerHTML += `<p>${description}</p>`;
 }
 
 function clearSearch() {
