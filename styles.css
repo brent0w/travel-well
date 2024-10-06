@@ -93,25 +93,27 @@ h1 {
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 h4 {
-  font-size: 1.2rem;
-}
-
-.left p:first-of-type {
-  font-size: max(1.5vw, 18pt);
+  font-size: 1.3rem;
 }
 
 p {
-  font-size: max(1vw, 14pt);
+  font-size: max(1.2rem);
   padding: 0 0 1vh 0;
 }
+
+.left p:first-of-type {
+  font-size: 1.5rem;
+}
+
+
 
 p > br {
   margin: 0 0 2vh 0;
