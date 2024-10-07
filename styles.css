@@ -28,22 +28,23 @@ nav {
   justify-content: space-between;
 }
 
-nav * {
-  padding: 5px;
-  align-items: center;
-}
-
 .nav-links {
   display: inline-flex;
   list-style: none;
   justify-items: start;
   flex-flow: row wrap;
+  padding: 1rem 0 1rem 2rem;
+}
+
+nav > * {
+  align-items: center;
+  justify-self: center;
 }
 
 .nav-links a {
-  margin-right: 0.5vw;
   color: white;
   font-size: 15pt;
+  margin: 0 1.5rem 0 0;
   text-decoration: none;
 }
 
@@ -51,6 +52,12 @@ nav * {
   display: inline-flex;
   flex-wrap: wrap;
   overflow: hidden;
+  padding: 1rem 1rem;
+}
+
+.search-container * {
+  margin: 0 0 0 .1rem;
+  padding: .2rem;
 }
 
 .search-container > label {
@@ -61,18 +68,22 @@ nav * {
   border-radius: 2px;
 }
 
-/* For screen under 500px wide */
+#search-input {
+  width: 12rem;
+}
+
+/* For screen under 750px wide */
 main {
   display: grid;
   max-width: 100vw;
   grid-template-rows: auto auto auto;
   grid-template-areas: "top" "left" "right";
-  padding: 1vh 1vw 1vh 1vw;
-  row-gap: 2vh;
+  padding: 2vh 1vw 1vh 1vw;
+  row-gap: 3vh;
 }
 
-/* For screen over 500px wide */
-@media (min-width: 750px) {
+/* For screen over 750px wide */
+@media (min-width: 950px) {
   main {
     column-gap: 5vw;
     grid-template-areas:
@@ -80,12 +91,11 @@ main {
       "left right";    
     grid-template-columns: 5fr 5fr;
     grid-template-rows: auto 2fr;
-
   }
 }
 
-main h1, h2, h3, h4, img, form, p {
-  margin: 1vh 1vw .5vh 1vw
+main h1, h2, h3, h4, main img, form, p {
+  margin: 1vh 1vw .5vh 1rem
 }
 
 h1 {
@@ -106,11 +116,16 @@ h4 {
 
 p {
   font-size: max(1.2rem);
-  padding: 0 0 1vh 0;
+
+}
+
+p:last-of-type {
+  padding: 0 0 3vh 0;
 }
 
 .left p:first-of-type {
   font-size: 1.5rem;
+  padding: 0 0 1rem 0
 }
 
 
@@ -130,8 +145,15 @@ p > br {
 .right {
   border-radius: 5px;
   grid-area: right;
-  height: 80vh;
+  height: auto;
   overflow: auto; 
+}
+
+/* For screen over 750px wide */
+@media (min-width: 750px) {
+  .right {
+    height: 80vh;
+  }
 }
 
 .right:not(:empty) {
