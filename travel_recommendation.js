@@ -8,15 +8,16 @@ function fetchDestinations() {
     fetch('./travel_recommendation_api.json')
         .then(response => response.json())
         .then(data => {
-            const query = searchInput.value.toLowerCase();
-            const type = matchSearch(query);
+            const query = searchInput.value;
+            const type = matchSearch(query.toLowerCase());
             const destinations = data[type];
             if (destinations) {
                 resultsDiv.innerHTML += '<p>How about a trip to...</p>'
                     displayResults(destinations, 2);
                 } else {
-                    resultsDiv.innerHTML = `<p>No results found for "${query}", but we know there is destination for you! \
-                    <br> How about searching for beaches, temples, or countries?</p>`;
+                    resultsDiv.innerHTML = `<p>No results found for "<span id='search-term'></span>"
+                                            <br> We know there is destination for you! How about searching for beaches, temples, or countries?</p>`;
+                    document.getElementById('search-term').innerText = query;
                 }
         })
 }
