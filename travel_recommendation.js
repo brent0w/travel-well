@@ -2,6 +2,7 @@ const searchBtn = document.getElementById('search-btn');
 const clearBtn = document.getElementById('clear-btn');
 const searchInput = document.getElementById('search-input');
 const resultsDiv = document.getElementById('search-results');
+document.createElement('h2').innerText = "Header";
 
 function fetchDestinations() {
     resultsDiv.innerHTML = '';
