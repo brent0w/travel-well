@@ -64,10 +64,6 @@ nav > * {
   color: white;
 }
 
-.search-buttons > button {
-  border-radius: 2px;
-}
-
 #search-input {
   width: 12rem;
 }
@@ -104,6 +100,7 @@ h1 {
 
 h2 {
   font-size: 1.7rem;
+
 }
 
 h3 {
@@ -119,19 +116,22 @@ p {
 
 }
 
-p:last-of-type {
-  padding: 0 0 3vh 0;
-}
-
 .left p:first-of-type {
   font-size: 1.5rem;
   padding: 0 0 1rem 0
 }
 
-
-
 p > br {
   margin: 0 0 2vh 0;
+}
+
+button {
+  border-radius: 2px;
+  padding: .2rem
+}
+
+input {
+  padding: .2rem
 }
 
 .top {
@@ -147,6 +147,22 @@ p > br {
   grid-area: right;
   height: auto;
   overflow: auto; 
+}
+
+.form-item {
+  margin: .5rem 0 
+}
+
+.destination {
+  margin: 0 0 2rem
+}
+
+.profile {
+  margin: 0 0 2vh 0
+}
+
+.avatar {
+  height: 10vh;
 }
 
 /* For screen over 750px wide */
