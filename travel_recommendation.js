@@ -2,6 +2,7 @@ const searchBtn = document.getElementById('search-btn');
 const clearBtn = document.getElementById('clear-btn');
 const searchInput = document.getElementById('search-input');
 const resultsDiv = document.getElementById('search-results');
+
 document.createElement('h2').innerText = "Header";
 
 function fetchDestinations() {
@@ -13,33 +14,40 @@ function fetchDestinations() {
             const type = matchSearch(query.toLowerCase());
             const destinations = data[type];
             if (destinations) {
-                resultsDiv.innerHTML += '<p>How about a trip to...</p>'
-                    displayResults(destinations, 2);
-                } else {
-                    resultsDiv.innerHTML = `<p>No results found for "<span id='search-term'></span>"
-                                            <br> We know there is destination for you! How about searching for beaches, temples, or countries?</p>`;
-                    document.getElementById('search-term').innerText = query;
-                }
+                displayResults(destinations, 2);
+            } else {
+                resultsDiv.innerHTML = `<p>No results found for "<span id='search-term'></span>"
+                                        <br> We know there is destination for you! How about searching for beaches, temples, or countries?</p>`;
+                document.getElementById('search-term').innerText = query;
+            }
         })
 }
 
 function displayResults(data, headerLevel) {
     // for each item in data
-    for (const item of data) {
-        const name = item.name;
-        const imageUrl = item.imageUrl;
-        const desc = item.description;
-        const cities = item.cities;
-        resultsDiv.innerHTML += `<h${headerLevel}>${name}</h${headerLevel}>`;
-        if (imageUrl) {
-            resultsDiv.innerHTML += `<img src="${imageUrl}" alt="Photo of ${name}">`;
-        }
-        if (desc) {
-            resultsDiv.innerHTML += `<p>${desc}</p>`;
-        }
-        if (cities) {
-            const newHeaderLevel = headerLevel + 1;
-            displayResults(item.cities, newHeaderLevel);
+    let destinationDiv = '<p>How about a trip to...</p>';
+    listDestinations(data, headerLevel);
+    resultsDiv.innerHTML += destinationDiv;
+
+    function listDestinations(data, headerLevel) {
+        for (const item of data) {;
+            const name = item.name;
+            const imageUrl = item.imageUrl;
+            const desc = item.description;
+            const cities = item.cities;
+            cities ? destinationDiv += '<div class = "region">' : destinationDiv += '<div class = "city">';
+            destinationDiv += `<h${headerLevel}>${name}</h${headerLevel}>`;
+            if (imageUrl) {
+                destinationDiv += `<img src="${imageUrl}" alt="Photo of ${name}">`;
+            }
+            if (desc) {
+                destinationDiv += `<p>${desc}</p>`;
+            }
+            if (cities) {
+                const newHeaderLevel = headerLevel + 1;
+                listDestinations(item.cities, newHeaderLevel);
+            }
+            destinationDiv += '</div>';
         }
     }
 }
